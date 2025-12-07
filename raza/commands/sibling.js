@@ -106,7 +106,7 @@ module.exports.run = async ({ api, event }) => {
     let senderInfo = await getUserInfo(api, senderID);
     let senderGender = senderInfo.gender === 1 ? "female" : senderInfo.gender === 2 ? "male" : detectGender(senderInfo.name || "");
 
-    if (mention[0]) {
+    if (mention.length > 0 && mention[0]) {
       two = mention[0];
     } else {
       const members = await getThreadMembers(api, threadID);
